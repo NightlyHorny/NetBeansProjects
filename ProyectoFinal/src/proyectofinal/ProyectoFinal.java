@@ -6,14 +6,46 @@ import javax.swing.JOptionPane;
 /* @author GM1 - Ian Roberto Tejada Reyes */
 public class ProyectoFinal {
 
-    public static String info[] = {"", ""};
+    public static String info[] = {"¿Tendré la menstruación durante el resto de mi vida?\n" 
+            + "Cuando las mujeres alcanzan la menopausia (en torno a los 45-55 años de edad), dejan de tener "
+            + "\nla menstruación. Las mujeres también dejan de tener la menstruación cuando están embarazadas.", "¿Qué cantidad de sangre se pierde en una menstruación?\n" 
+            + "Pueda dar la sensación de que se pierde mucha sangre, pero una chica solo suele perder unas pocas "
+            + "\ncucharadas de sangre en cada menstruación. La mayoría de las chicas necesitan cambiarse de compresa, "
+            + "\ntampón o copa menstrual entre 3 y 6 veces al día.","¿Cuánto duran las menstruaciones?\n" 
+            + "Las menstruaciones suelen durar unos 5 días. Pero pueden ser más cortas o más largas.", 
+              "La menstruación es la sangre que sale del útero de una niña, chica o mujer, a través de "
+            + "\nla vagina. Cuando a una niña le viene la menstruación es una señal de que se está "
+            + "\nacercando al final de la pubertad.",
+              "¿Qué causa las enfermedades de transmisión sexual?\n" +
+              "Las causas de las ETS pueden ser bacterias, virus y parásitos.",
+              "Hay más de 20 tipos de ETS, incluyendo:\n" +
+             "\n" +
+             "Clamidia\n" +
+             "Herpes genital\n" +
+             "Gonorrea\n" +
+             "VIH y sida\n" +
+             "VPH\n" +
+             "Ladillas\n" +
+             "Sífilis\n" +
+             "Tricomoniasis",
+             "Los síntomas, pueden incluir:\n" +
+             "\n" +
+             "Secreción inusual del pene o la vagina\n" +
+             "Llagas o verrugas en el área genital\n" +
+             "Micción frecuente o dolorosa\n" +
+             "Picazón y enrojecimiento en el área genital\n" +
+             "Ampollas o llagas en o alrededor de la boca\n" +
+             "Olor vaginal anormal\n" +
+             "Picazón, dolor o sangrado anal\n" +
+             "Dolor abdominal\n" +
+             "Fiebre"};
     public static String array[] = new String[4];
     public static String datos[] = {"nombre", "email", "telefono", "pais"};
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        String continuar = null;
+        String continuar = "si";
         int edadint;
 
         do {
@@ -71,7 +103,12 @@ public class ProyectoFinal {
                     continuar = opciones[opcion];
                 }
             } catch (ArrayIndexOutOfBoundsException ex) {
-                JOptionPane.showMessageDialog(null, "Lo sentimos, a ocurrido un error (ArrayIndexOutOfBoundsException)");
+                System.out.println("Lo sentimos, a ocurrido un error (ArrayIndexOutOfBoundsException)");
+            }
+            catch(java.lang.NumberFormatException ex){
+                System.out.println("Lo sentimos, a ocurrido un error (java.lang.NumberFormatException)");
+            }catch(java.lang.NullPointerException ex){
+                System.out.println("Lo sentimos, a ocurrido un error (java.lang.NullPointerException)");
             }
         } while (continuar.equalsIgnoreCase("si"));
 
@@ -110,7 +147,7 @@ public class ProyectoFinal {
             array[x] = JOptionPane.showInputDialog("Por favor ingresa tu " + datos[x]);
             datosacumulador += datos[x] + ": " + array[x] + "\n";
         }
-        JOptionPane.showMessageDialog(null, "Cita", datosacumulador, 0);
+        JOptionPane.showMessageDialog(null, "Cita", datosacumulador, 1);
         JOptionPane.showMessageDialog(null, "Cita", "Se agendo correctamente la cita\nnos pondremos en contacto con usted\npara definir un horario.", 0);
 
     }
